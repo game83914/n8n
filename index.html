@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>職缺公告清單</title>
+  <style>
+    :root{
+      --bg:#0b1220; --panel:#0f1a2e; --card:#111f3a;
+      --text:#e8eefc; --muted:#a9b6d6; --line:rgba(255,255,255,.10);
+      --accent:#7c5cff; --accent2:#25d0ab; --warn:#ffcc66; --danger:#ff6b6b;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f7fb; --panel:#ffffff; --card:#ffffff;
+        --text:#101828; --muted:#475467; --line:rgba(16,24,40,.10);
+        --shadow: 0 18px 60px rgba(16,24,40,.12);
+      }
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+        "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(124,92,255,.20), transparent 55%),
+        radial-gradient(900px 500px at 90% 10%, rgba(37,208,171,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg));
+      color:var(--text);
+      min-height:100vh;
+    }
+    a{color:inherit}
+    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 60px}
+    header{
+      background: linear-gradient(135deg, rgba(124,92,255,.18), rgba(37,208,171,.12));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px 22px 18px;
+      backdrop-filter: blur(10px);
+    }
+    .titleRow{
+      display:flex; gap:14px; align-items:flex-start; justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    h1{
+      margin:0;
+      font-size:22px;
+      letter-spacing:.2px;
+    }
+    .sub{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.4;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .controls{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: 1.4fr .7fr .7fr .7fr;
+      gap:10px;
+    }
+    @media (max-width: 900px){
+      .controls{grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 520px){
+      .controls{grid-template-columns: 1fr; }
+    }
+    .control{
+      display:flex; align-items:center; gap:10px;
+      background: var(--panel);
+      border:1px solid var(--line);
+      border-radius: 14px;
+      padding:10px 12px;
+    }
+    .control input, .control select{
+      width:100%;
+      border:none;
+      outline:none;
+      background:transparent;
+      color:var(--text);
+      font-size:14px;
+    }
+    .control input::placeholder{color: color-mix(in srgb, var(--muted) 80%, transparent)}
+    .icon{
+      width:18px; height:18px; opacity:.9; flex:0 0 auto;
+      color: color-mix(in srgb, var(--muted) 70%, var(--text));
+    }
+    main{margin-top:18px}
+    .metaRow{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      color:var(--muted);
+      font-size:12px;
+      margin:12px 4px 10px;
+      flex-wrap:wrap;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns: 1fr;}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 28px rgba(0,0,0,.18);
+      overflow:hidden;
+      position:relative;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(600px 200px at 10% 0%, rgba(124,92,255,.18), transparent 60%),
+                  radial-gradient(600px 200px at 90% 0%, rgba(37,208,171,.14), transparent 60%);
+      pointer-events:none;
+    }
+    .cardInner{position:relative; padding:16px 16px 14px}
+    .cardTop{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+    }
+    .unit{
+      font-size:12px; color:var(--muted); margin:0 0 6px;
+    }
+    .jobTitle{
+      margin:0;
+      font-size:16px;
+      line-height:1.35;
+      letter-spacing:.2px;
+    }
+    .tags{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top:10px;
+    }
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+    }
+    .tag.urgent{color: var(--warn); border-color: color-mix(in srgb, var(--warn) 40%, var(--line));}
+    .tag.danger{color: var(--danger); border-color: color-mix(in srgb, var(--danger) 45%, var(--line));}
+    .tag.ok{color: var(--accent2); border-color: color-mix(in srgb, var(--accent2) 45%, var(--line));}
+    .row{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+      margin-top:12px;
+      color: var(--muted);
+      font-size:12px;
+    }
+    .btnRow{
+      margin-top:14px;
+      display:flex; gap:10px; align-items:center; justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: linear-gradient(135deg, rgba(124,92,255,.25), rgba(37,208,171,.15));
+      color: var(--text);
+      text-decoration:none;
+      font-weight:600;
+      font-size:13px;
+      cursor:pointer;
+      transition: transform .12s ease, filter .12s ease;
+    }
+    .btn:hover{transform: translateY(-1px); filter: brightness(1.05);}
+    .btn.secondary{
+      background: rgba(255,255,255,.04);
+      font-weight:600;
+    }
+    .empty{
+      padding:18px;
+      border:1px dashed var(--line);
+      border-radius: var(--radius);
+      color:var(--muted);
+      background: rgba(255,255,255,.03);
+    }
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="titleRow">
+        <div>
+          <h1>職缺公告清單</h1>
+          <p class="sub">
+            支援搜尋、排序、地點/機關篩選；點「查看公告」會開新分頁。
+          </p>
+        </div>
+        <div class="pill" id="summaryPill">載入中…</div>
+      </div>
+
+      <div class="controls">
+        <div class="control">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35m1.35-5.15a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="q" placeholder="搜尋：機關、職缺標題、地點、編號…" autocomplete="off" />
+        </div>
+
+        <div class="control">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M6 12h12M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <select id="sort">
+            <option value="deadlineAsc">依截止日：近 → 遠</option>
+            <option value="deadlineDesc">依截止日：遠 → 近</option>
+            <option value="postDesc">依公告日：新 → 舊</option>
+            <option value="postAsc">依公告日：舊 → 新</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4.5 8-12a8 8 0 10-16 0c0 7.5 8 12 8 12z" stroke="currentColor" stroke-width="2"/><path d="M12 11a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="2"/></svg>
+          <select id="location"></select>
+        </div>
+
+        <div class="control">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M7 6v14m10-14v14M4 10h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <select id="unit"></select>
+        </div>
+      </div>
+
+      <div class="metaRow">
+        <div>小技巧：在搜尋框按 <span class="kbd">/</span> 可快速聚焦。</div>
+        <div id="countText"></div>
+      </div>
+    </header>
+
+    <main>
+      <div class="grid" id="list"></div>
+      <div class="empty" id="empty" style="display:none;">找不到符合條件的資料，試試看清除篩選或換個關鍵字。</div>
+    </main>
+  </div>
+
+  <script>
+    let DATA = [];
+
+    // ===== Helpers =====
+    const $ = (sel) => document.querySelector(sel);
+    const fmt = (s) => (s ?? "").toString().trim();
+
+    function parseYMD(s){
+      // 支援 "2025/12/17" 或 "2025-12-17"
+      const t = fmt(s).replace(/-/g, "/");
+      const [y,m,d] = t.split("/").map(Number);
+      if(!y || !m || !d) return null;
+      return new Date(y, m-1, d, 0, 0, 0, 0);
+    }
+
+    function daysUntil(date){
+      if(!date) return null;
+      const now = new Date();
+      const a = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const b = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      const ms = b - a;
+      return Math.round(ms / 86400000);
+    }
+
+    function cleanUrl(u){
+      // 你的 linkUrl 有些會帶上 ` "xxx` 這種尾巴，這裡把空白後面切掉
+      // 例：https://...Detail?num=28108 "臺北...
+      const s = fmt(u);
+      if(!s) return "";
+      return s.split(/\s+"/)[0].trim();
+    }
+
+    function uniq(arr){
+      return Array.from(new Set(arr.filter(Boolean))).sort((a,b)=>a.localeCompare(b,"zh-Hant"));
+    }
+
+    function badgeForDeadline(deadlineStr){
+      const d = parseYMD(deadlineStr);
+      const left = daysUntil(d);
+      if(left === null) return {text:"未提供截止日", cls:""};
+      if(left < 0) return {text:`已截止（${Math.abs(left)} 天前）`, cls:"danger"};
+      if(left === 0) return {text:"今天截止", cls:"danger"};
+      if(left <= 7) return {text:`剩 ${left} 天`, cls:"urgent"};
+      return {text:`剩 ${left} 天`, cls:"ok"};
+    }
+
+    function escapeHtml(str){
+      return fmt(str)
+        .replaceAll("&","&amp;").replaceAll("<","&lt;")
+        .replaceAll(">","&gt;").replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    // ===== UI Setup =====
+    const q = $("#q");
+    const sort = $("#sort");
+    const locationSel = $("#location");
+    const unitSel = $("#unit");
+    const list = $("#list");
+    const empty = $("#empty");
+    const countText = $("#countText");
+    const summaryPill = $("#summaryPill");
+
+    function initFilters(){
+      const locations = uniq(DATA.map(x => fmt(x.location)));
+      const units = uniq(DATA.map(x => fmt(x.unit)));
+
+      locationSel.innerHTML = `<option value="">全部地點</option>` + locations.map(v => `<option>${escapeHtml(v)}</option>`).join("");
+      unitSel.innerHTML = `<option value="">全部機關</option>` + units.map(v => `<option>${escapeHtml(v)}</option>`).join("");
+
+      summaryPill.textContent = `共 ${DATA.length} 筆資料`;
+    }
+
+    function applySort(items){
+      const s = sort.value;
+      const getDeadline = (x) => parseYMD(x.deadline)?.getTime() ?? (s.includes("Asc") ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY);
+      const getPost = (x) => parseYMD(x.postDate)?.getTime() ?? 0;
+
+      const copy = items.slice();
+      switch(s){
+        case "deadlineAsc":  copy.sort((a,b)=> getDeadline(a) - getDeadline(b)); break;
+        case "deadlineDesc": copy.sort((a,b)=> getDeadline(b) - getDeadline(a)); break;
+        case "postAsc":      copy.sort((a,b)=> getPost(a) - getPost(b)); break;
+        case "postDesc":     copy.sort((a,b)=> getPost(b) - getPost(a)); break;
+      }
+      return copy;
+    }
+
+    function filterItems(){
+      const keyword = fmt(q.value).toLowerCase();
+      const loc = fmt(locationSel.value);
+      const unit = fmt(unitSel.value);
+
+      const filtered = DATA.filter(x => {
+        if(loc && fmt(x.location) !== loc) return false;
+        if(unit && fmt(x.unit) !== unit) return false;
+
+        if(!keyword) return true;
+
+        const hay = [
+          x.unit, x.title, x.location, x.postDate, x.deadline, x.linkText, x.num
+        ].map(v => fmt(v).toLowerCase()).join(" | ");
+
+        return hay.includes(keyword);
+      });
+
+      return applySort(filtered);
+    }
+
+    function render(){
+      const items = filterItems();
+      countText.textContent = `顯示 ${items.length} / ${DATA.length} 筆`;
+
+      if(items.length === 0){
+        list.innerHTML = "";
+        empty.style.display = "block";
+        return;
+      }
+      empty.style.display = "none";
+
+      list.innerHTML = items.map(x => {
+        const url = cleanUrl(x.linkUrl);
+        const badge = badgeForDeadline(x.deadline);
+        const post = fmt(x.postDate) || "—";
+        const deadline = fmt(x.deadline) || "—";
+        const num = fmt(x.num) || "—";
+
+        return `
+          <article class="card">
+            <div class="cardInner">
+              <div class="cardTop">
+                <div style="min-width:0;">
+                  <p class="unit">${escapeHtml(fmt(x.unit) || "（未提供機關）")}</p>
+                  <h3 class="jobTitle">${escapeHtml(fmt(x.title) || "（未提供職缺標題）")}</h3>
+
+                  <div class="tags">
+                    <span class="tag">${escapeHtml(fmt(x.location) || "未提供地點")}</span>
+                    <span class="tag ${badge.cls}">${escapeHtml(badge.text)}</span>
+                    <span class="tag">編號 ${escapeHtml(num)}</span>
+                  </div>
+
+                  <div class="row">
+                    <span>公告日：${escapeHtml(post)}</span>
+                    <span>｜</span>
+                    <span>截止日：${escapeHtml(deadline)}</span>
+                  </div>
+
+                  <div class="btnRow">
+                    <a class="btn" href="${escapeHtml(url || "#")}" target="_blank" rel="noreferrer noopener" ${url ? "" : "aria-disabled='true' onclick='return false;'"}>
+                      查看公告
+                      <span style="opacity:.9">↗</span>
+                    </a>
+                    <button class="btn secondary" type="button" onclick="copyText('${escapeHtml(url)}')">
+                      複製連結
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function wire(){
+      ["input","change"].forEach(evt => {
+        q.addEventListener(evt, render);
+        sort.addEventListener(evt, render);
+        locationSel.addEventListener(evt, render);
+        unitSel.addEventListener(evt, render);
+      });
+
+      // 快捷鍵：/ 聚焦搜尋
+      window.addEventListener("keydown", (e) => {
+        if(e.key === "/" && document.activeElement !== q){
+          e.preventDefault();
+          q.focus();
+        }
+      });
+    }
+
+    // 複製
+    window.copyText = async (text) => {
+      const t = (text || "").trim();
+      if(!t){ alert("沒有可複製的連結"); return; }
+      try{
+        await navigator.clipboard.writeText(t);
+        summaryPill.textContent = "已複製連結 ✅";
+        setTimeout(()=> summaryPill.textContent = `共 ${DATA.length} 筆資料`, 1200);
+      }catch{
+        prompt("複製這個連結：", t);
+      }
+    };
+
+async function load(){
+  const res = await fetch("./data.json");
+  DATA = await res.json();
+  initFilters();
+  wire();
+  render();
+}
+load();
+
+    
+    // ===== Boot =====
+    initFilters();
+    wire();
+    render();
+  </script>
+</body>
+</html>
