@@ -451,7 +451,7 @@
     };
 
 async function load(){
-  const res = await fetch("./data.json");
+  const res = await fetch("./data");
   DATA = await res.json();
   initFilters();
   wire();
