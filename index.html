@@ -204,6 +204,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <header>
@@ -219,27 +220,38 @@
 
       <div class="controls">
         <div class="control">
-          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35m1.35-5.15a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="none">
+            <path d="M21 21l-4.35-4.35m1.35-5.15a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
           <input id="q" placeholder="搜尋：機關、職缺標題、地點、編號…" autocomplete="off" />
         </div>
 
         <div class="control">
-          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M6 12h12M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="none">
+            <path d="M3 6h18M6 12h12M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+
+          <!-- ✅ 預設改成公告日：新 → 舊（postDesc） -->
           <select id="sort">
+            <option value="postDesc" selected>依公告日：新 → 舊</option>
             <option value="deadlineAsc">依截止日：近 → 遠</option>
             <option value="deadlineDesc">依截止日：遠 → 近</option>
-            <option value="postDesc">依公告日：新 → 舊</option>
             <option value="postAsc">依公告日：舊 → 新</option>
           </select>
         </div>
 
         <div class="control">
-          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4.5 8-12a8 8 0 10-16 0c0 7.5 8 12 8 12z" stroke="currentColor" stroke-width="2"/><path d="M12 11a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="none">
+            <path d="M12 22s8-4.5 8-12a8 8 0 10-16 0c0 7.5 8 12 8 12z" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 11a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="2"/>
+          </svg>
           <select id="location"></select>
         </div>
 
         <div class="control">
-          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M7 6v14m10-14v14M4 10h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="none">
+            <path d="M4 6h16M7 6v14m10-14v14M4 10h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
           <select id="unit"></select>
         </div>
       </div>
@@ -281,7 +293,6 @@
     }
 
     function cleanUrl(u){
-      // 你的 linkUrl 有些會帶上 ` "xxx` 這種尾巴，這裡把空白後面切掉
       // 例：https://...Detail?num=28108 "臺北...
       const s = fmt(u);
       if(!s) return "";
@@ -450,20 +461,24 @@
       }
     };
 
-async function load(){
-  const res = await fetch("./data");
-  DATA = await res.json();
-  initFilters();
-  wire();
-  render();
-}
-load();
+    // ===== Boot（只跑一次，避免重複 init/render）=====
+    async function load(){
+      try{
+        const res = await fetch("./data");
+        if(!res.ok) throw new Error(`HTTP ${res.status}`);
+        DATA = await res.json();
 
-    
-    // ===== Boot =====
-    initFilters();
-    wire();
-    render();
+        initFilters();
+        wire();
+        render();
+      }catch(err){
+        console.error(err);
+        summaryPill.textContent = "載入失敗";
+        document.querySelector("#list").innerHTML =
+          `<div class="empty">無法載入資料，請確認 <b>data.json</b> 是否與 index.html 同資料夾，且內容是 JSON 陣列（[...]）。</div>`;
+      }
+    }
+    load();
   </script>
 </body>
 </html>
