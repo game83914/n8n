@@ -80,16 +80,6 @@
     "num": "28111"
   },
   {
-    "unit": "國立高雄科技大學行銷與流通管理系",
-    "title": "國立高雄科技大學行銷與流通管理系徵聘1名專任專業技術人員公告",
-    "location": "高雄市燕巢區",
-    "postDate": "2025/12/17",
-    "deadline": "2026/02/26",
-    "linkText": "國立高雄科技大學行銷與流通管理系徵聘1名專任專業技術人員公告",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28113 \"國立高雄科技大學行銷與流通管理系徵聘1名專任專業技術人員公告\"",
-    "num": "28113"
-  },
-  {
     "unit": "弘光科技大學人事室",
     "title": "弘光科技大學【動物保健系】專案助理教授級專業技術人員",
     "location": "臺中市沙鹿區",
@@ -780,46 +770,6 @@
     "num": "28028"
   },
   {
-    "unit": "國立聯合大學電子工程學系",
-    "title": "國立聯合大學電子工程學系教師甄選公告(收件至115/03/06止)",
-    "location": "苗栗縣苗栗市",
-    "postDate": "2025/12/04",
-    "deadline": "2026/03/06",
-    "linkText": "國立聯合大學電子工程學系教師甄選公告(收件至115/03/06止)",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28022 \"國立聯合大學電子工程學系教師甄選公告(收件至115/03/06止",
-    "num": "28022"
-  },
-  {
-    "unit": "國立臺北大學企業管理學系",
-    "title": "國立臺北大學企業管理學系進修學士班誠徵專任教師/進修學士班兼任教師/博士生兼任講師公告",
-    "location": "新北市三峽區",
-    "postDate": "2025/12/04",
-    "deadline": "2026/01/21",
-    "linkText": "國立臺北大學企業管理學系進修學士班誠徵專任教師/進修學士班兼任教師/博士生兼任講師公告",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28005 \"國立臺北大學企業管理學系進修學士班誠徵專任教師/進修學士班兼任教師/博士生兼任講師公告\"",
-    "num": "28005"
-  },
-  {
-    "unit": "中國科技大學人事室",
-    "title": "中國科技大學規劃與設計學院 建築系 誠徵副教授以上師資",
-    "location": "臺北市文山區",
-    "postDate": "2025/12/04",
-    "deadline": "2025/12/20",
-    "linkText": "中國科技大學規劃與設計學院 建築系 誠徵副教授以上師資",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28020 \"中國科技大學規劃與設計學院 建築系 誠徵副教授以上師資\"",
-    "num": "28020"
-  },
-  {
-    "unit": "國立中興大學景觀與遊憩學士、碩士學位學程",
-    "title": "國立中興大學景觀與遊憩學位學程 徵聘專任教師1名",
-    "location": "臺中市南區",
-    "postDate": "2025/12/04",
-    "deadline": "2026/01/05",
-    "linkText": "國立中興大學景觀與遊憩學位學程 徵聘專任教師1名",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28017 \"國立中興大學景觀與遊憩學位學程 徵聘專任教師1名\"",
-    "num": "28017"
-  },
-  {
     "unit": "長庚大學管理學院資產管理研究所",
     "title": "長庚大學資產管理研究所誠徵助理教授(含)以上職級之專任教師2名",
     "location": "桃園市龜山區",
@@ -1000,6 +950,66 @@
     "num": "28134"
   },
   {
+    "unit": "大葉大學人事室",
+    "title": "大葉大學應用日語學系誠徵助理教授級（含）以上 專案教師乙名徵才公告",
+    "location": "彰化縣大村鄉",
+    "postDate": "2025/12/04",
+    "deadline": "2025/12/22",
+    "linkText": "大葉大學應用日語學系誠徵助理教授級（含）以上 專案教師乙名徵才公告",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28003 \"大葉大學應用日語學系誠徵助理教授級（含）以上 專案教師乙名徵才公告\"",
+    "num": "28003"
+  },
+  {
+    "unit": "國立高雄科技大學行銷與流通管理系",
+    "title": "國立高雄科技大學行銷與流通管理系徵聘1名專任專業技術人員公告",
+    "location": "高雄市燕巢區",
+    "postDate": "2025/12/17",
+    "deadline": "2026/02/26",
+    "linkText": "國立高雄科技大學行銷與流通管理系徵聘1名專任專業技術人員公告",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28113 \"國立高雄科技大學行銷與流通管理系徵聘1名專任專業技術人員公告\"",
+    "num": "28113"
+  },
+  {
+    "unit": "國立聯合大學電子工程學系",
+    "title": "國立聯合大學電子工程學系教師甄選公告(收件至115/03/06止)",
+    "location": "苗栗縣苗栗市",
+    "postDate": "2025/12/04",
+    "deadline": "2026/03/06",
+    "linkText": "國立聯合大學電子工程學系教師甄選公告(收件至115/03/06止)",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28022 \"國立聯合大學電子工程學系教師甄選公告(收件至115/03/06止",
+    "num": "28022"
+  },
+  {
+    "unit": "國立臺北大學企業管理學系",
+    "title": "國立臺北大學企業管理學系進修學士班誠徵專任教師/進修學士班兼任教師/博士生兼任講師公告",
+    "location": "新北市三峽區",
+    "postDate": "2025/12/04",
+    "deadline": "2026/01/21",
+    "linkText": "國立臺北大學企業管理學系進修學士班誠徵專任教師/進修學士班兼任教師/博士生兼任講師公告",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28005 \"國立臺北大學企業管理學系進修學士班誠徵專任教師/進修學士班兼任教師/博士生兼任講師公告\"",
+    "num": "28005"
+  },
+  {
+    "unit": "中國科技大學人事室",
+    "title": "中國科技大學規劃與設計學院 建築系 誠徵副教授以上師資",
+    "location": "臺北市文山區",
+    "postDate": "2025/12/04",
+    "deadline": "2025/12/20",
+    "linkText": "中國科技大學規劃與設計學院 建築系 誠徵副教授以上師資",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28020 \"中國科技大學規劃與設計學院 建築系 誠徵副教授以上師資\"",
+    "num": "28020"
+  },
+  {
+    "unit": "國立中興大學景觀與遊憩學士、碩士學位學程",
+    "title": "國立中興大學景觀與遊憩學位學程 徵聘專任教師1名",
+    "location": "臺中市南區",
+    "postDate": "2025/12/04",
+    "deadline": "2026/01/05",
+    "linkText": "國立中興大學景觀與遊憩學位學程 徵聘專任教師1名",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28017 \"國立中興大學景觀與遊憩學位學程 徵聘專任教師1名\"",
+    "num": "28017"
+  },
+  {
     "unit": "萬能科技大學觀休系",
     "title": "萬能科技大學觀光與休閒事業管理系誠徵專案教師或專業技術人員",
     "location": "桃園市中壢區",
@@ -1018,16 +1028,6 @@
     "linkText": "國立屏東大學科學傳播系徵聘專任教師公告(1141204)",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28016 \"國立屏東大學科學傳播系徵聘專任教師公告(1141204",
     "num": "28016"
-  },
-  {
-    "unit": "大葉大學人事室",
-    "title": "大葉大學應用日語學系誠徵助理教授級（含）以上 專案教師乙名徵才公告",
-    "location": "彰化縣大村鄉",
-    "postDate": "2025/12/04",
-    "deadline": "2025/12/22",
-    "linkText": "大葉大學應用日語學系誠徵助理教授級（含）以上 專案教師乙名徵才公告",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28003 \"大葉大學應用日語學系誠徵助理教授級（含）以上 專案教師乙名徵才公告\"",
-    "num": "28003"
   },
   {
     "unit": "中國醫藥大學藥學系",
@@ -2208,5 +2208,35 @@
     "linkText": "國立臺灣藝術大學美術學院古蹟藝術修護學系誠徵專任教師1名",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=27835 \"國立臺灣藝術大學美術學院古蹟藝術修護學系誠徵專任教師1名\"",
     "num": "27835"
+  },
+  {
+    "unit": "元智大學電機工程學系(乙組)",
+    "title": "元智大學 電機工程學系(乙組) 新聘專任師資公告",
+    "location": "桃園市中壢區",
+    "postDate": "2025/12/18",
+    "deadline": "2026/02/23",
+    "linkText": "元智大學 電機工程學系(乙組) 新聘專任師資公告",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28135 \"元智大學 電機工程學系(乙組",
+    "num": "28135"
+  },
+  {
+    "unit": "國立臺南大學應用數學系",
+    "title": "國立臺南大學應用數學系新聘教師甄選簡章(延長公告)",
+    "location": "臺南市中西區",
+    "postDate": "2025/12/18",
+    "deadline": "2026/01/10",
+    "linkText": "國立臺南大學應用數學系新聘教師甄選簡章(延長公告)",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28137 \"國立臺南大學應用數學系新聘教師甄選簡章(延長公告",
+    "num": "28137"
+  },
+  {
+    "unit": "元智大學Department of Electrical Engineering (Program B)",
+    "title": "Faculty Positions in the Department of Electrical Engineering (Program B) Yuan Ze University, Taiwan",
+    "location": "桃園市中壢區",
+    "postDate": "2025/12/18",
+    "deadline": "2026/02/23",
+    "linkText": "Faculty Positions in the Department of Electrical Engineering (Program B) Yuan Ze University, Taiwan",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28136 \"Faculty Positions in the Department of Electrical Engineering (Program B",
+    "num": "28136"
   }
 ]
