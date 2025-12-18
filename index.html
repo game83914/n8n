@@ -64,7 +64,7 @@
     .controls{
       margin-top:16px;
       display:grid;
-      grid-template-columns: 1.4fr .7fr .7fr .7fr;
+      grid-template-columns: 1.6fr .7fr .9fr;
       gap:10px;
     }
     @media (max-width: 900px){ .controls{grid-template-columns: 1fr 1fr;} }
@@ -76,6 +76,7 @@
       border:1px solid var(--line);
       border-radius: 14px;
       padding:10px 12px;
+      position: relative;
     }
     .control input, .control select{
       width:100%;
@@ -116,6 +117,7 @@
       box-shadow: 0 10px 28px rgba(0,0,0,.18);
       overflow:hidden;
       position:relative;
+      min-height: 190px;
     }
     .card::before{
       content:"";
@@ -124,8 +126,15 @@
                   radial-gradient(600px 200px at 90% 0%, rgba(37,208,171,.14), transparent 60%);
       pointer-events:none;
     }
-    .cardInner{position:relative; padding:16px 16px 14px}
-    .cardTop{display:flex; align-items:flex-start; justify-content:space-between; gap:12px;}
+    .cardInner{
+      position:relative;
+      padding:16px 16px 14px;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
     .unit{font-size:12px; color:var(--muted); margin:0 0 6px;}
     .jobTitle{margin:0; font-size:16px; line-height:1.35; letter-spacing:.2px;}
 
@@ -148,11 +157,13 @@
       color: var(--muted);
       font-size:12px;
     }
+
     .btnRow{
-      margin-top:14px;
-      display:flex; gap:10px; align-items:center; justify-content:space-between;
-      flex-wrap:wrap;
+      margin-top:auto; /* ✅ 固定到底部 */
+      display:flex;
+      justify-content:flex-end; /* ✅ 右下角 */
     }
+
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
       padding:10px 12px;
@@ -165,9 +176,14 @@
       font-size:13px;
       cursor:pointer;
       transition: transform .12s ease, filter .12s ease;
+      white-space:nowrap;
     }
     .btn:hover{transform: translateY(-1px); filter: brightness(1.05);}
-    .btn.secondary{background: rgba(255,255,255,.04); font-weight:600;}
+    .btn[aria-disabled="true"]{
+      opacity:.55;
+      cursor:not-allowed;
+      filter: none;
+    }
 
     .empty{
       padding:18px;
@@ -186,23 +202,15 @@
       color: var(--muted);
     }
 
-    /* =========================================================
-       ✅ 修正：深色系 select 展開選單（避免白底刺眼）
-       注意：不同瀏覽器對 option 樣式支援度不一，但這是最佳原生解。
-       ========================================================= */
+    /* 深色系 select 展開選單（避免白底刺眼） */
     .control select{
-      background-color: transparent; /* 外層 .control 已有 panel */
+      background-color: transparent;
       color: var(--text);
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
       padding-right: 34px; /* 留給箭頭 */
       cursor: pointer;
-    }
-
-    /* 自製箭頭（跟深色 UI 一致） */
-    .control:has(select){
-      position: relative;
     }
     .control:has(select)::after{
       content:"";
@@ -217,8 +225,6 @@
       pointer-events:none;
       opacity:.9;
     }
-
-    /* 下拉選項（Chrome/Edge/Safari 多數有效） */
     select option{
       background-color: var(--panel);
       color: var(--text);
@@ -226,6 +232,40 @@
     select option:checked{
       background-color: color-mix(in srgb, var(--accent) 25%, var(--panel));
       color: var(--text);
+    }
+
+    /* Pagination */
+    .pager{
+      margin-top:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .pageBtn{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      padding:8px 10px;
+      border-radius: 12px;
+      cursor:pointer;
+      font-size:13px;
+      min-width:40px;
+      text-align:center;
+      transition: transform .12s ease, filter .12s ease;
+    }
+    .pageBtn:hover{transform: translateY(-1px); filter: brightness(1.05);}
+    .pageBtn[disabled]{
+      opacity:.5;
+      cursor:not-allowed;
+      transform:none;
+      filter:none;
+    }
+    .pageBtn.active{
+      background: linear-gradient(135deg, rgba(124,92,255,.28), rgba(37,208,171,.18));
+      border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+      font-weight:700;
     }
   </style>
 </head>
@@ -236,7 +276,7 @@
       <div class="titleRow">
         <div>
           <h1>職缺公告清單</h1>
-          <p class="sub">支援搜尋、排序、地點/機關篩選；點「查看公告」會開新分頁。</p>
+          <p class="sub">支援搜尋、縣市/截止期限篩選；預設依公告日由新到舊排序。</p>
         </div>
         <div class="pill" id="summaryPill">載入中…</div>
       </div>
@@ -251,31 +291,26 @@
 
         <div class="control">
           <svg class="icon" viewBox="0 0 24 24" fill="none">
-            <path d="M3 6h18M6 12h12M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-
-          <!-- ✅ 預設：公告日 新 → 舊 -->
-          <select id="sort">
-            <option value="postDesc" selected>依公告日：新 → 舊</option>
-            <option value="deadlineAsc">依截止日：近 → 遠</option>
-            <option value="deadlineDesc">依截止日：遠 → 近</option>
-            <option value="postAsc">依公告日：舊 → 新</option>
-          </select>
-        </div>
-
-        <div class="control">
-          <svg class="icon" viewBox="0 0 24 24" fill="none">
             <path d="M12 22s8-4.5 8-12a8 8 0 10-16 0c0 7.5 8 12 8 12z" stroke="currentColor" stroke-width="2"/>
             <path d="M12 11a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="2"/>
           </svg>
-          <select id="location"></select>
+          <select id="city"></select>
         </div>
 
         <div class="control">
           <svg class="icon" viewBox="0 0 24 24" fill="none">
-            <path d="M4 6h16M7 6v14m10-14v14M4 10h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M7 2v3M17 2v3M3.5 7h17M5 10h14M6 14h4M6 18h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 5h16a2 2 0 012 2v13a2 2 0 01-2 2H4a2 2 0 01-2-2V7a2 2 0 012-2z" stroke="currentColor" stroke-width="2" opacity=".35"/>
           </svg>
-          <select id="unit"></select>
+          <select id="deadlineFilter">
+            <option value="">全部期限</option>
+            <option value="7">一週內截止</option>
+            <option value="30">一個月內截止</option>
+            <option value="60">兩個月內截止</option>
+            <option value="90">三個月內截止</option>
+            <option value="open">尚未截止</option>
+            <option value="overdue">已截止</option>
+          </select>
         </div>
       </div>
 
@@ -287,6 +322,9 @@
 
     <main>
       <div class="grid" id="list"></div>
+
+      <div class="pager" id="pager" style="display:none;"></div>
+
       <div class="empty" id="empty" style="display:none;">
         找不到符合條件的資料，試試看清除篩選或換個關鍵字。
       </div>
@@ -295,6 +333,8 @@
 
   <script>
     let DATA = [];
+    const PAGE_SIZE = 12;
+    let currentPage = 1;
 
     // ===== Helpers =====
     const $ = (sel) => document.querySelector(sel);
@@ -325,6 +365,29 @@
       return Array.from(new Set(arr.filter(Boolean))).sort((a,b)=>a.localeCompare(b,"zh-Hant"));
     }
 
+    function normalizeZhTW(s){
+      // 常見：台 -> 臺（用於縣市一致性）
+      return fmt(s).replaceAll("台","臺");
+    }
+
+    function cityFromLocation(location){
+      const s = normalizeZhTW(location);
+      const cities = [
+        "臺北市","新北市","桃園市","臺中市","臺南市","高雄市",
+        "基隆市","新竹市","嘉義市",
+        "新竹縣","苗栗縣","彰化縣","南投縣","雲林縣","嘉義縣",
+        "屏東縣","宜蘭縣","花蓮縣","臺東縣","澎湖縣","金門縣","連江縣"
+      ];
+      for(const c of cities){
+        if(s.includes(c)) return c;
+      }
+      // 若資料本身就是縣市/國外等，至少回傳第一段
+      // 例如「高雄市燕巢區」→高雄市；「臺灣」→臺灣
+      const m = s.match(/^(..市|..縣)/);
+      if(m) return m[0];
+      return s ? s.split(/[\s,，]/)[0] : "";
+    }
+
     function badgeForDeadline(deadlineStr){
       const d = parseYMD(deadlineStr);
       const left = daysUntil(d);
@@ -342,58 +405,62 @@
         .replaceAll("'","&#039;");
     }
 
-    // ===== UI Setup =====
+    // ===== UI =====
     const q = $("#q");
-    const sort = $("#sort");
-    const locationSel = $("#location");
-    const unitSel = $("#unit");
+    const citySel = $("#city");
+    const ddlSel = $("#deadlineFilter");
     const list = $("#list");
     const empty = $("#empty");
+    const pager = $("#pager");
     const countText = $("#countText");
     const summaryPill = $("#summaryPill");
 
     function initFilters(){
-      const locations = uniq(DATA.map(x => fmt(x.location)));
-      const units = uniq(DATA.map(x => fmt(x.unit)));
-
-      locationSel.innerHTML = `<option value="">全部地點</option>` +
-        locations.map(v => `<option>${escapeHtml(v)}</option>`).join("");
-
-      unitSel.innerHTML = `<option value="">全部機關</option>` +
-        units.map(v => `<option>${escapeHtml(v)}</option>`).join("");
+      const cities = uniq(DATA.map(x => cityFromLocation(x.location)));
+      citySel.innerHTML = `<option value="">全部縣市</option>` +
+        cities.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("");
 
       summaryPill.textContent = `共 ${DATA.length} 筆資料`;
     }
 
-    function applySort(items){
-      const s = sort.value;
+    function sortByPostDesc(items){
+      return items.slice().sort((a,b)=>{
+        const ta = parseYMD(a.postDate)?.getTime() ?? 0;
+        const tb = parseYMD(b.postDate)?.getTime() ?? 0;
+        return tb - ta;
+      });
+    }
 
-      const getDeadline = (x) => {
-        const t = parseYMD(x.deadline)?.getTime();
-        if(t != null) return t;
-        return s.includes("Asc") ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
-      };
+    function matchDeadlineBucket(item){
+      const mode = fmt(ddlSel.value);
+      if(!mode) return true;
 
-      const getPost = (x) => parseYMD(x.postDate)?.getTime() ?? 0;
+      const d = parseYMD(item.deadline);
+      const left = daysUntil(d);
 
-      const copy = items.slice();
-      switch(s){
-        case "deadlineAsc":  copy.sort((a,b)=> getDeadline(a) - getDeadline(b)); break;
-        case "deadlineDesc": copy.sort((a,b)=> getDeadline(b) - getDeadline(a)); break;
-        case "postAsc":      copy.sort((a,b)=> getPost(a) - getPost(b)); break;
-        case "postDesc":     copy.sort((a,b)=> getPost(b) - getPost(a)); break;
+      if(mode === "open"){
+        return left === null ? true : left >= 0;
       }
-      return copy;
+      if(mode === "overdue"){
+        return left !== null && left < 0;
+      }
+
+      const n = Number(mode);
+      if(Number.isFinite(n)){
+        // 沒有截止日：放行（避免錯失資訊），你也可改成 false
+        if(left === null) return true;
+        return left >= 0 && left <= n;
+      }
+      return true;
     }
 
     function filterItems(){
       const keyword = fmt(q.value).toLowerCase();
-      const loc = fmt(locationSel.value);
-      const unit = fmt(unitSel.value);
+      const city = fmt(citySel.value);
 
       const filtered = DATA.filter(x => {
-        if(loc && fmt(x.location) !== loc) return false;
-        if(unit && fmt(x.unit) !== unit) return false;
+        if(city && cityFromLocation(x.location) !== city) return false;
+        if(!matchDeadlineBucket(x)) return false;
 
         if(!keyword) return true;
 
@@ -404,57 +471,124 @@
         return hay.includes(keyword);
       });
 
-      return applySort(filtered);
+      return sortByPostDesc(filtered);
+    }
+
+    function paged(items){
+      const totalPages = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
+      if(currentPage > totalPages) currentPage = totalPages;
+
+      const start = (currentPage - 1) * PAGE_SIZE;
+      return {
+        totalPages,
+        pageItems: items.slice(start, start + PAGE_SIZE),
+        startIndex: items.length ? start + 1 : 0,
+        endIndex: items.length ? Math.min(start + PAGE_SIZE, items.length) : 0
+      };
+    }
+
+    function renderPager(totalPages, totalItems){
+      if(totalItems <= PAGE_SIZE){
+        pager.style.display = "none";
+        pager.innerHTML = "";
+        return;
+      }
+
+      pager.style.display = "flex";
+
+      const mkBtn = ({label, page, disabled=false, active=false}) => {
+        const dis = disabled ? "disabled" : "";
+        const act = active ? "active" : "";
+        return `<button class="pageBtn ${act}" ${dis} data-page="${page}">${label}</button>`;
+      };
+
+      const buttons = [];
+      buttons.push(mkBtn({label:"‹", page: Math.max(1, currentPage - 1), disabled: currentPage === 1}));
+
+      // 顯示範圍：current ±2
+      const start = Math.max(1, currentPage - 2);
+      const end = Math.min(totalPages, currentPage + 2);
+
+      if(start > 1){
+        buttons.push(mkBtn({label:"1", page:1, active: currentPage===1}));
+        if(start > 2) buttons.push(`<span style="opacity:.7; padding:0 4px;">…</span>`);
+      }
+
+      for(let p = start; p <= end; p++){
+        buttons.push(mkBtn({label:String(p), page:p, active: p===currentPage}));
+      }
+
+      if(end < totalPages){
+        if(end < totalPages - 1) buttons.push(`<span style="opacity:.7; padding:0 4px;">…</span>`);
+        buttons.push(mkBtn({label:String(totalPages), page:totalPages, active: currentPage===totalPages}));
+      }
+
+      buttons.push(mkBtn({label:"›", page: Math.min(totalPages, currentPage + 1), disabled: currentPage === totalPages}));
+
+      pager.innerHTML = buttons.join("");
+
+      pager.querySelectorAll("button[data-page]").forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          const p = Number(btn.getAttribute("data-page"));
+          if(!p || p === currentPage) return;
+          currentPage = p;
+          render();
+          window.scrollTo({top:0, behavior:"smooth"});
+        });
+      });
     }
 
     function render(){
-      const items = filterItems();
-      countText.textContent = `顯示 ${items.length} / ${DATA.length} 筆`;
+      const all = filterItems();
+      const { totalPages, pageItems, startIndex, endIndex } = paged(all);
 
-      if(items.length === 0){
+      countText.textContent = all.length
+        ? `顯示 ${startIndex}–${endIndex} / ${all.length} 筆（資料庫共 ${DATA.length} 筆）`
+        : `顯示 0 / 0 筆（資料庫共 ${DATA.length} 筆）`;
+
+      if(all.length === 0){
         list.innerHTML = "";
+        pager.style.display = "none";
         empty.style.display = "block";
         return;
       }
-      empty.style.display = "none";
 
-      list.innerHTML = items.map(x => {
+      empty.style.display = "none";
+      renderPager(totalPages, all.length);
+
+      list.innerHTML = pageItems.map(x => {
         const url = cleanUrl(x.linkUrl);
         const badge = badgeForDeadline(x.deadline);
         const post = fmt(x.postDate) || "—";
         const deadline = fmt(x.deadline) || "—";
         const num = fmt(x.num) || "—";
+        const city = cityFromLocation(x.location);
 
         return `
           <article class="card">
             <div class="cardInner">
-              <div class="cardTop">
-                <div style="min-width:0;">
-                  <p class="unit">${escapeHtml(fmt(x.unit) || "（未提供機關）")}</p>
-                  <h3 class="jobTitle">${escapeHtml(fmt(x.title) || "（未提供職缺標題）")}</h3>
+              <div>
+                <p class="unit">${escapeHtml(fmt(x.unit) || "（未提供機關）")}</p>
+                <h3 class="jobTitle">${escapeHtml(fmt(x.title) || "（未提供職缺標題）")}</h3>
 
-                  <div class="tags">
-                    <span class="tag">${escapeHtml(fmt(x.location) || "未提供地點")}</span>
-                    <span class="tag ${badge.cls}">${escapeHtml(badge.text)}</span>
-                    <span class="tag">編號 ${escapeHtml(num)}</span>
-                  </div>
-
-                  <div class="row">
-                    <span>公告日：${escapeHtml(post)}</span>
-                    <span>｜</span>
-                    <span>截止日：${escapeHtml(deadline)}</span>
-                  </div>
-
-                  <div class="btnRow">
-                    <a class="btn" href="${escapeHtml(url || "#")}" target="_blank" rel="noreferrer noopener"
-                      ${url ? "" : "aria-disabled='true' onclick='return false;'"}>
-                      查看公告 <span style="opacity:.9">↗</span>
-                    </a>
-                    <button class="btn secondary" type="button" onclick="copyText('${escapeHtml(url)}')">
-                      複製連結
-                    </button>
-                  </div>
+                <div class="tags">
+                  <span class="tag">${escapeHtml(city || "未提供縣市")}</span>
+                  <span class="tag ${badge.cls}">${escapeHtml(badge.text)}</span>
+                  <span class="tag">編號 ${escapeHtml(num)}</span>
                 </div>
+
+                <div class="row">
+                  <span>公告日：${escapeHtml(post)}</span>
+                  <span>｜</span>
+                  <span>截止日：${escapeHtml(deadline)}</span>
+                </div>
+              </div>
+
+              <div class="btnRow">
+                <a class="btn" href="${escapeHtml(url || "#")}" target="_blank" rel="noreferrer noopener"
+                  ${url ? "" : "aria-disabled='true' onclick='return false;'"}>
+                  查看公告 <span style="opacity:.9">↗</span>
+                </a>
               </div>
             </div>
           </article>
@@ -463,12 +597,10 @@
     }
 
     function wire(){
-      ["input","change"].forEach(evt => {
-        q.addEventListener(evt, render);
-        sort.addEventListener(evt, render);
-        locationSel.addEventListener(evt, render);
-        unitSel.addEventListener(evt, render);
-      });
+      // 任何篩選/搜尋變更都回到第一頁
+      q.addEventListener("input", ()=>{ currentPage = 1; render(); });
+      citySel.addEventListener("change", ()=>{ currentPage = 1; render(); });
+      ddlSel.addEventListener("change", ()=>{ currentPage = 1; render(); });
 
       // 快捷鍵：/ 聚焦搜尋
       window.addEventListener("keydown", (e) => {
@@ -479,20 +611,7 @@
       });
     }
 
-    // 複製
-    window.copyText = async (text) => {
-      const t = (text || "").trim();
-      if(!t){ alert("沒有可複製的連結"); return; }
-      try{
-        await navigator.clipboard.writeText(t);
-        summaryPill.textContent = "已複製連結 ✅";
-        setTimeout(()=> summaryPill.textContent = `共 ${DATA.length} 筆資料`, 1200);
-      }catch{
-        prompt("複製這個連結：", t);
-      }
-    };
-
-    // ===== Boot（只跑一次）=====
+    // ===== Boot =====
     async function load(){
       try{
         const res = await fetch("./data");
@@ -507,8 +626,7 @@
         summaryPill.textContent = "載入失敗";
         list.innerHTML = `
           <div class="empty">
-            無法載入資料。請確認 <b>data.json</b> 是否與 <b>index.html</b> 同資料夾，
-            且內容是 JSON 陣列（[...]）。
+            無法載入資料。請確認 <b>data</b> API 是否可取得 JSON 陣列（[...]）。
           </div>
         `;
       }
