@@ -730,16 +730,6 @@
     "num": "28133"
   },
   {
-    "unit": "國立成功大學護理系",
-    "title": "國立成功大學護理學系誠徵專案教師一名",
-    "location": "臺南市東區",
-    "postDate": "2025/12/18",
-    "deadline": "2025/12/21",
-    "linkText": "國立成功大學護理學系誠徵專案教師一名",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28132 \"國立成功大學護理學系誠徵專案教師一名\"",
-    "num": "28132"
-  },
-  {
     "unit": "國立彰化師範大學特殊教育學系",
     "title": "國立彰化師範大學特殊教育學系徵聘【專任】師資2名",
     "location": "彰化縣彰化市",
@@ -1008,6 +998,16 @@
     "linkText": "國立高雄科技大學航運技術系徵聘1名專任專業技術人員公告",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28057 \"國立高雄科技大學航運技術系徵聘1名專任專業技術人員公告\"",
     "num": "28057"
+  },
+  {
+    "unit": "國立成功大學護理系",
+    "title": "國立成功大學護理學系誠徵專案教師一名",
+    "location": "臺南市東區",
+    "postDate": "2025/12/18",
+    "deadline": "2025/12/21",
+    "linkText": "國立成功大學護理學系誠徵專案教師一名",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28132 \"國立成功大學護理學系誠徵專案教師一名\"",
+    "num": "28132"
   },
   {
     "unit": "國立高雄科技大學本校外語學院",
