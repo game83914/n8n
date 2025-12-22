@@ -500,26 +500,6 @@
     "num": "28046"
   },
   {
-    "unit": "中央警察大學人事室",
-    "title": "公告中央警察大學甄聘鑑識科學學系助理教授級專任教師1名",
-    "location": "桃園市龜山區",
-    "postDate": "2025/12/08",
-    "deadline": "2026/01/09",
-    "linkText": "公告中央警察大學甄聘鑑識科學學系助理教授級專任教師1名",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28045 \"公告中央警察大學甄聘鑑識科學學系助理教授級專任教師1名\"",
-    "num": "28045"
-  },
-  {
-    "unit": "致理科技大學人事室",
-    "title": "致理科技大學徵求114學年度第2學期師資公告(應用日語系)",
-    "location": "新北市板橋區",
-    "postDate": "2025/12/08",
-    "deadline": "2025/12/24",
-    "linkText": "致理科技大學徵求114學年度第2學期師資公告(應用日語系)",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28038 \"致理科技大學徵求114學年度第2學期師資公告(應用日語系",
-    "num": "28038"
-  },
-  {
     "unit": "國立臺北科技大學國立臺北科技大學資訊與財金管理系",
     "title": "國立臺北科技大學資訊與財金管理系115學年度第1學期徵聘助理教授以上專任教師1名",
     "location": "臺北市大安區",
@@ -760,16 +740,6 @@
     "num": "28135"
   },
   {
-    "unit": "國立臺南大學應用數學系",
-    "title": "國立臺南大學應用數學系新聘教師甄選簡章(延長公告)",
-    "location": "臺南市中西區",
-    "postDate": "2025/12/18",
-    "deadline": "2026/01/10",
-    "linkText": "國立臺南大學應用數學系新聘教師甄選簡章(延長公告)",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28137 \"國立臺南大學應用數學系新聘教師甄選簡章(延長公告",
-    "num": "28137"
-  },
-  {
     "unit": "元智大學Department of Electrical Engineering (Program B)",
     "title": "Faculty Positions in the Department of Electrical Engineering (Program B) Yuan Ze University, Taiwan",
     "location": "桃園市中壢區",
@@ -998,6 +968,36 @@
     "linkText": "元智大學電機工程學系甲組115學年度第1學系誠徵專任師資2名",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28152 \"元智大學電機工程學系甲組115學年度第1學系誠徵專任師資2名\"",
     "num": "28152"
+  },
+  {
+    "unit": "中央警察大學人事室",
+    "title": "公告中央警察大學甄聘鑑識科學學系助理教授級專任教師1名",
+    "location": "桃園市龜山區",
+    "postDate": "2025/12/08",
+    "deadline": "2026/01/09",
+    "linkText": "公告中央警察大學甄聘鑑識科學學系助理教授級專任教師1名",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28045 \"公告中央警察大學甄聘鑑識科學學系助理教授級專任教師1名\"",
+    "num": "28045"
+  },
+  {
+    "unit": "致理科技大學人事室",
+    "title": "致理科技大學徵求114學年度第2學期師資公告(應用日語系)",
+    "location": "新北市板橋區",
+    "postDate": "2025/12/08",
+    "deadline": "2025/12/24",
+    "linkText": "致理科技大學徵求114學年度第2學期師資公告(應用日語系)",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28038 \"致理科技大學徵求114學年度第2學期師資公告(應用日語系",
+    "num": "28038"
+  },
+  {
+    "unit": "國立臺南大學應用數學系",
+    "title": "國立臺南大學應用數學系新聘教師甄選簡章(延長公告)",
+    "location": "臺南市中西區",
+    "postDate": "2025/12/18",
+    "deadline": "2026/01/10",
+    "linkText": "國立臺南大學應用數學系新聘教師甄選簡章(延長公告)",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28137 \"國立臺南大學應用數學系新聘教師甄選簡章(延長公告",
+    "num": "28137"
   },
   {
     "unit": "國立臺南藝術大學應用藝術研究所",
@@ -2378,5 +2378,25 @@
     "linkText": "國立臺灣藝術大學美術學院古蹟藝術修護學系誠徵專任教師1名",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=27835 \"國立臺灣藝術大學美術學院古蹟藝術修護學系誠徵專任教師1名\"",
     "num": "27835"
+  },
+  {
+    "unit": "台南應用科技大學人事室",
+    "title": "台南應用科技大學美術系誠徵編制內專任或編制外專案助理教授以上師資",
+    "location": "臺南市永康區",
+    "postDate": "2025/12/22",
+    "deadline": "2025/12/31",
+    "linkText": "台南應用科技大學美術系誠徵編制內專任或編制外專案助理教授以上師資",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28155 \"台南應用科技大學美術系誠徵編制內專任或編制外專案助理教授以上師資\"",
+    "num": "28155"
+  },
+  {
+    "unit": "台南應用科技大學人事室",
+    "title": "台南應用科技大學室內設計系誠徵編制內專任或編制外專案助理教授級以上師資",
+    "location": "臺南市永康區",
+    "postDate": "2025/12/22",
+    "deadline": "2025/12/31",
+    "linkText": "台南應用科技大學室內設計系誠徵編制內專任或編制外專案助理教授級以上師資",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28154 \"台南應用科技大學室內設計系誠徵編制內專任或編制外專案助理教授級以上師資\"",
+    "num": "28154"
   }
 ]
