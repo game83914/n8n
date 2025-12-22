@@ -970,6 +970,36 @@
     "num": "28149"
   },
   {
+    "unit": "致理科技大學人事室",
+    "title": "致理科技大學徵求114學年度第2學期師資公告(商務智慧與創新研究所)",
+    "location": "新北市板橋區",
+    "postDate": "2025/12/22",
+    "deadline": "2026/01/29",
+    "linkText": "致理科技大學徵求114學年度第2學期師資公告(商務智慧與創新研究所)",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28150 \"致理科技大學徵求114學年度第2學期師資公告(商務智慧與創新研究所",
+    "num": "28150"
+  },
+  {
+    "unit": "元智大學Department of Electrical Engineering Program A",
+    "title": "Yuan Ze University Department of Electrical Engineering Program A",
+    "location": "桃園市中壢區",
+    "postDate": "2025/12/22",
+    "deadline": "2026/01/30",
+    "linkText": "Yuan Ze University Department of Electrical Engineering Program A",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28151 \"Yuan Ze University Department of Electrical Engineering Program A\"",
+    "num": "28151"
+  },
+  {
+    "unit": "元智大學人事室",
+    "title": "元智大學電機工程學系甲組115學年度第1學系誠徵專任師資2名",
+    "location": "桃園市中壢區",
+    "postDate": "2025/12/22",
+    "deadline": "2026/01/30",
+    "linkText": "元智大學電機工程學系甲組115學年度第1學系誠徵專任師資2名",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28152 \"元智大學電機工程學系甲組115學年度第1學系誠徵專任師資2名\"",
+    "num": "28152"
+  },
+  {
     "unit": "國立臺南藝術大學應用藝術研究所",
     "title": "國立臺南藝術大學應用藝術研究所115學年度誠徵助理教授(含)以上之專任師資1名",
     "location": "臺南市官田區",
@@ -2348,35 +2378,5 @@
     "linkText": "國立臺灣藝術大學美術學院古蹟藝術修護學系誠徵專任教師1名",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=27835 \"國立臺灣藝術大學美術學院古蹟藝術修護學系誠徵專任教師1名\"",
     "num": "27835"
-  },
-  {
-    "unit": "致理科技大學人事室",
-    "title": "致理科技大學徵求114學年度第2學期師資公告(商務智慧與創新研究所)",
-    "location": "新北市板橋區",
-    "postDate": "2025/12/22",
-    "deadline": "2026/01/29",
-    "linkText": "致理科技大學徵求114學年度第2學期師資公告(商務智慧與創新研究所)",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28150 \"致理科技大學徵求114學年度第2學期師資公告(商務智慧與創新研究所",
-    "num": "28150"
-  },
-  {
-    "unit": "元智大學Department of Electrical Engineering Program A",
-    "title": "Yuan Ze University Department of Electrical Engineering Program A",
-    "location": "桃園市中壢區",
-    "postDate": "2025/12/22",
-    "deadline": "2026/01/30",
-    "linkText": "Yuan Ze University Department of Electrical Engineering Program A",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28151 \"Yuan Ze University Department of Electrical Engineering Program A\"",
-    "num": "28151"
-  },
-  {
-    "unit": "元智大學人事室",
-    "title": "元智大學電機工程學系甲組115學年度第1學系誠徵專任師資2名",
-    "location": "桃園市中壢區",
-    "postDate": "2025/12/22",
-    "deadline": "2026/01/30",
-    "linkText": "元智大學電機工程學系甲組115學年度第1學系誠徵專任師資2名",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28152 \"元智大學電機工程學系甲組115學年度第1學系誠徵專任師資2名\"",
-    "num": "28152"
   }
 ]
