@@ -330,8 +330,74 @@
 
   
       .selectWrap{display:flex; flex-direction:column; gap:6px; min-width: 180px;}
-      .selectWrap select{min-height: 160px;}
-      .hint{font-size:12px; color: rgba(255,255,255,.65); line-height:1.2;}
+.hint{font-size:12px; color: rgba(255,255,255,.65); line-height:1.2;}
+
+/* 多選下拉（保留原本點開的操作感） */
+.multiWrap{position:relative; width:100%; min-width: 180px;}
+.multiTrigger{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:14px 14px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+  font-size:14px;
+  cursor:pointer;
+}
+.multiTrigger:hover{background: rgba(255,255,255,.05);}
+.multiTrigger:focus{outline:2px solid rgba(122, 92, 255, .35); outline-offset:2px;}
+.multiTrigger .chev{width:18px; height:18px; opacity:.85;}
+
+.multiDropdown{
+  position:absolute;
+  left:0; right:0;
+  top: calc(100% + 8px);
+  z-index: 50;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background: rgba(16, 22, 40, .96);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  padding:10px;
+}
+.multiList{
+  max-height: 240px;
+  overflow:auto;
+  padding:6px 6px;
+}
+.multiItem{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 10px;
+  border-radius:12px;
+  cursor:pointer;
+  user-select:none;
+}
+.multiItem:hover{background: rgba(255,255,255,.06);}
+.multiItem input{accent-color: var(--accent);}
+.multiItem span{font-size:14px; color: rgba(255,255,255,.92);}
+.multiActions{
+  display:flex;
+  gap:8px;
+  padding:8px 6px 4px;
+  border-top:1px solid rgba(255,255,255,.08);
+  margin-top:6px;
+}
+.miniBtn{
+  padding:8px 10px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.9);
+  cursor:pointer;
+  font-size:13px;
+}
+.miniBtn:hover{background: rgba(255,255,255,.07);}
     </style>
 </head>
 
@@ -362,10 +428,21 @@
             <path d="M12 22s8-4.5 8-12a8 8 0 10-16 0c0 7.5 8 12 8 12z" stroke="currentColor" stroke-width="2"/>
             <path d="M12 11a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="2"/>
           </svg>
-          <div class="selectWrap">
-            <select id="city" multiple size="6" aria-label="縣市（可複選）"></select>
-            <div class="hint">縣市可複選（Windows 按住 Ctrl；Mac 按住 ⌘）</div>
-          </div>
+          <div class="multiWrap" id="cityMulti">
+  <button type="button" class="multiTrigger" id="cityTrigger" aria-haspopup="listbox" aria-expanded="false">
+    全部縣市
+    <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div class="multiDropdown" id="cityDropdown" role="listbox" aria-label="縣市（可複選）" hidden>
+    <div class="multiList" id="cityOptions"></div>
+    <div class="multiActions">
+      <button type="button" class="miniBtn" id="cityAllBtn">全選</button>
+      <button type="button" class="miniBtn" id="cityClearBtn">清除</button>
+    </div>
+  </div>
+</div>
         </div>
 
         <div class="control">
@@ -559,7 +636,13 @@
 
     // ===== UI =====
     const q = $("#q");
-    const citySel = $("#city");
+    const cityTrigger = $("#cityTrigger");
+    const cityDropdown = $("#cityDropdown");
+    const cityOptions = $("#cityOptions");
+    const cityAllBtn = $("#cityAllBtn");
+    const cityClearBtn = $("#cityClearBtn");
+
+    let selectedCitySet = new Set();
     const ddlSel = $("#deadlineFilter");
     const list = $("#list");
     const empty = $("#empty");
@@ -569,12 +652,83 @@
     const modifiedPill = $("#modifiedPill");
     const onlyFavChk = $("#onlyFav");
 
+    function updateCityTriggerText(){
+      if(!cityTrigger) return;
+      const arr = Array.from(selectedCitySet);
+      // cityTrigger 內第一段文字節點是標籤文字（後面還有小箭頭 SVG）
+      if(arr.length === 0){
+        cityTrigger.childNodes[0].nodeValue = "全部縣市";
+      }else if(arr.length === 1){
+        cityTrigger.childNodes[0].nodeValue = arr[0];
+      }else{
+        cityTrigger.childNodes[0].nodeValue = `已選 ${arr.length} 個縣市`;
+      }
+    }
+
+    function openCityDropdown(){
+      if(!cityDropdown || !cityTrigger) return;
+      cityDropdown.hidden = false;
+      cityTrigger.setAttribute("aria-expanded","true");
+    }
+    function closeCityDropdown(){
+      if(!cityDropdown || !cityTrigger) return;
+      cityDropdown.hidden = true;
+      cityTrigger.setAttribute("aria-expanded","false");
+    }
+    function toggleCityDropdown(){
+      if(!cityDropdown) return;
+      if(cityDropdown.hidden) openCityDropdown();
+      else closeCityDropdown();
+    }
+
     function initFilters(){
       const cities = sortCitiesZhTW(uniq(DATA.map(x => cityFromLocation(x.location))));
-      citySel.innerHTML = `<option value="">全部縣市</option>` +
-        cities.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("");
 
-      summaryPill.textContent = `共 ${DATA.length} 筆資料`;
+      // 產生「可複選」的自訂下拉（點開才顯示，不會一開始展開）
+      cityOptions.innerHTML = cities.map((v, i) => {
+        const id = `cityOpt_${i}`;
+        return `
+          <label class="multiItem" for="${id}">
+            <input id="${id}" type="checkbox" value="${escapeHtml(v)}" />
+            <span>${escapeHtml(v)}</span>
+          </label>
+        `;
+      }).join("");
+
+      // 事件：勾選縣市
+      cityOptions.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        cb.addEventListener("change", () => {
+          const val = fmt(cb.value);
+          if(cb.checked) selectedCitySet.add(val);
+          else selectedCitySet.delete(val);
+          updateCityTriggerText();
+          currentPage = 1;
+          render();
+        });
+      });
+
+      // 全選 / 清除
+      if(cityAllBtn){
+        cityAllBtn.addEventListener("click", () => {
+          selectedCitySet = new Set(cities.map(v => fmt(v)));
+          cityOptions.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = true);
+          updateCityTriggerText();
+          currentPage = 1;
+          render();
+        });
+      }
+      if(cityClearBtn){
+        cityClearBtn.addEventListener("click", () => {
+          selectedCitySet = new Set();
+          cityOptions.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+          updateCityTriggerText();
+          currentPage = 1;
+          render();
+        });
+      }
+
+      updateCityTriggerText();
+summaryPill.textContent = `共 ${DATA.length} 筆資料`;
 
       // 顯示資料最新修改時間（若伺服器提供 Last-Modified，就用它；否則顯示本次讀取時間）
       const t = dataLastModifiedText || dataFetchedAtText;
@@ -619,7 +773,7 @@
 
     function filterItems(){
       const keyword = fmt(q.value).toLowerCase();
-      const selectedCities = Array.from(citySel.selectedOptions).map(o => fmt(o.value)).filter(Boolean);
+      const selectedCities = Array.from(selectedCitySet);
 
       const filtered = DATA.filter(x => {
         const key = jobKey(x);
@@ -786,7 +940,21 @@
     function wire(){
       // 任何篩選/搜尋變更都回到第一頁
       q.addEventListener("input", ()=>{ currentPage = 1; render(); });
-      citySel.addEventListener("change", ()=>{ currentPage = 1; render(); });
+      // 縣市多選下拉：點一下才展開
+if(cityTrigger){
+  cityTrigger.addEventListener("click", (e)=>{ e.preventDefault(); toggleCityDropdown(); });
+}
+// 點擊外部關閉
+document.addEventListener("click", (e)=>{
+  const t = e.target;
+  if(!cityDropdown || !cityTrigger) return;
+  const inBox = cityDropdown.contains(t) || cityTrigger.contains(t);
+  if(!inBox) closeCityDropdown();
+});
+// ESC 關閉
+document.addEventListener("keydown", (e)=>{
+  if(e.key === "Escape") closeCityDropdown();
+});
       ddlSel.addEventListener("change", ()=>{ currentPage = 1; render(); });
 
       // 只看收藏
