@@ -1,25 +1,5 @@
 [
   {
-    "unit": "國立聯合大學化學工程學系",
-    "title": "國立聯合大學化學工程學系誠徵專任助理教授以上教師 1名",
-    "location": "苗栗縣苗栗市",
-    "postDate": "2025/12/17",
-    "deadline": "2026/03/04",
-    "linkText": "國立聯合大學化學工程學系誠徵專任助理教授以上教師 1名",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28111 \"國立聯合大學化學工程學系誠徵專任助理教授以上教師 1名\"",
-    "num": "28111"
-  },
-  {
-    "unit": "國立雲林科技大學人事室",
-    "title": "國立雲林科技⼤學資訊工程系編制內專任師資徵聘公告",
-    "location": "雲林縣斗六市",
-    "postDate": "2025/12/18",
-    "deadline": "2026/01/16",
-    "linkText": "國立雲林科技⼤學資訊工程系編制內專任師資徵聘公告",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28119 \"國立雲林科技⼤學資訊工程系編制內專任師資徵聘公告\"",
-    "num": "28119"
-  },
-  {
     "unit": "中原大學人事室",
     "title": "中原大學化學系徵聘專任助理教授(含)以上1名",
     "location": "桃園市中壢區",
@@ -70,16 +50,6 @@
     "num": "28121"
   },
   {
-    "unit": "國立臺灣大學生命科學院生命科學系",
-    "title": "國立臺灣大學生命科學系徵聘專任教師",
-    "location": "臺北市大安區",
-    "postDate": "2025/12/18",
-    "deadline": "2026/01/23",
-    "linkText": "國立臺灣大學生命科學系徵聘專任教師",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28124 \"國立臺灣大學生命科學系徵聘專任教師\"",
-    "num": "28124"
-  },
-  {
     "unit": "國立政治大學教育學院",
     "title": "國立政治大學教育學院徵聘專任教師公告 【教育學領域(側重教育基礎理論、課程與教學)】",
     "location": "臺北市文山區",
@@ -100,26 +70,6 @@
     "num": "28133"
   },
   {
-    "unit": "國立彰化師範大學特殊教育學系",
-    "title": "國立彰化師範大學特殊教育學系徵聘【專任】師資2名",
-    "location": "彰化縣彰化市",
-    "postDate": "2025/12/18",
-    "deadline": "2026/02/26",
-    "linkText": "國立彰化師範大學特殊教育學系徵聘【專任】師資2名",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28131 \"國立彰化師範大學特殊教育學系徵聘【專任】師資2名\"",
-    "num": "28131"
-  },
-  {
-    "unit": "國立臺南藝術大學聲響科技研究所",
-    "title": "國立臺南藝術大學聲響科技研究所徵聘兼任教師公告(技術類別)",
-    "location": "臺南市官田區",
-    "postDate": "2025/12/18",
-    "deadline": "2026/01/05",
-    "linkText": "國立臺南藝術大學聲響科技研究所徵聘兼任教師公告(技術類別)",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28134 \"國立臺南藝術大學聲響科技研究所徵聘兼任教師公告(技術類別",
-    "num": "28134"
-  },
-  {
     "unit": "元智大學電機工程學系(乙組)",
     "title": "元智大學 電機工程學系(乙組) 新聘專任師資公告",
     "location": "桃園市中壢區",
@@ -138,16 +88,6 @@
     "linkText": "Faculty Positions in the Department of Electrical Engineering (Program B) Yuan Ze University, Taiwan",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28136 \"Faculty Positions in the Department of Electrical Engineering (Program B",
     "num": "28136"
-  },
-  {
-    "unit": "國立高雄科技大學行銷與流通管理系",
-    "title": "國立高雄科技大學行銷與流通管理系徵聘1名專任專業技術人員公告",
-    "location": "高雄市燕巢區",
-    "postDate": "2025/12/17",
-    "deadline": "2026/02/26",
-    "linkText": "國立高雄科技大學行銷與流通管理系徵聘1名專任專業技術人員公告",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28113 \"國立高雄科技大學行銷與流通管理系徵聘1名專任專業技術人員公告\"",
-    "num": "28113"
   },
   {
     "unit": "國立臺東大學人事室",
@@ -398,6 +338,66 @@
     "linkText": "中原大學電子工程學系徵聘專任助理教授(含)以上1名",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28159 \"中原大學電子工程學系徵聘專任助理教授(含",
     "num": "28159"
+  },
+  {
+    "unit": "國立聯合大學化學工程學系",
+    "title": "國立聯合大學化學工程學系誠徵專任助理教授以上教師 1名",
+    "location": "苗栗縣苗栗市",
+    "postDate": "2025/12/17",
+    "deadline": "2026/03/04",
+    "linkText": "國立聯合大學化學工程學系誠徵專任助理教授以上教師 1名",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28111 \"國立聯合大學化學工程學系誠徵專任助理教授以上教師 1名\"",
+    "num": "28111"
+  },
+  {
+    "unit": "國立雲林科技大學人事室",
+    "title": "國立雲林科技⼤學資訊工程系編制內專任師資徵聘公告",
+    "location": "雲林縣斗六市",
+    "postDate": "2025/12/18",
+    "deadline": "2026/01/16",
+    "linkText": "國立雲林科技⼤學資訊工程系編制內專任師資徵聘公告",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28119 \"國立雲林科技⼤學資訊工程系編制內專任師資徵聘公告\"",
+    "num": "28119"
+  },
+  {
+    "unit": "國立臺灣大學生命科學院生命科學系",
+    "title": "國立臺灣大學生命科學系徵聘專任教師",
+    "location": "臺北市大安區",
+    "postDate": "2025/12/18",
+    "deadline": "2026/01/23",
+    "linkText": "國立臺灣大學生命科學系徵聘專任教師",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28124 \"國立臺灣大學生命科學系徵聘專任教師\"",
+    "num": "28124"
+  },
+  {
+    "unit": "國立彰化師範大學特殊教育學系",
+    "title": "國立彰化師範大學特殊教育學系徵聘【專任】師資2名",
+    "location": "彰化縣彰化市",
+    "postDate": "2025/12/18",
+    "deadline": "2026/02/26",
+    "linkText": "國立彰化師範大學特殊教育學系徵聘【專任】師資2名",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28131 \"國立彰化師範大學特殊教育學系徵聘【專任】師資2名\"",
+    "num": "28131"
+  },
+  {
+    "unit": "國立臺南藝術大學聲響科技研究所",
+    "title": "國立臺南藝術大學聲響科技研究所徵聘兼任教師公告(技術類別)",
+    "location": "臺南市官田區",
+    "postDate": "2025/12/18",
+    "deadline": "2026/01/05",
+    "linkText": "國立臺南藝術大學聲響科技研究所徵聘兼任教師公告(技術類別)",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28134 \"國立臺南藝術大學聲響科技研究所徵聘兼任教師公告(技術類別",
+    "num": "28134"
+  },
+  {
+    "unit": "國立高雄科技大學行銷與流通管理系",
+    "title": "國立高雄科技大學行銷與流通管理系徵聘1名專任專業技術人員公告",
+    "location": "高雄市燕巢區",
+    "postDate": "2025/12/17",
+    "deadline": "2026/02/26",
+    "linkText": "國立高雄科技大學行銷與流通管理系徵聘1名專任專業技術人員公告",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28113 \"國立高雄科技大學行銷與流通管理系徵聘1名專任專業技術人員公告\"",
+    "num": "28113"
   },
   {
     "unit": "國立高雄科技大學行銷與流通管理系",
@@ -2448,5 +2448,65 @@
     "linkText": "國立臺灣藝術大學美術學院古蹟藝術修護學系誠徵專任教師1名",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=27835 \"國立臺灣藝術大學美術學院古蹟藝術修護學系誠徵專任教師1名\"",
     "num": "27835"
+  },
+  {
+    "unit": "國立政治大學教育學院",
+    "title": "國立政治大學教育學院徵聘專任教師公告 【教育學領域(側重教育管理、人力資源管理、組織行為、組織心理學)】",
+    "location": "臺北市文山區",
+    "postDate": "2025/12/23",
+    "deadline": "2026/03/02",
+    "linkText": "國立政治大學教育學院徵聘專任教師公告 【教育學領域(側重教育管理、人力資源管理、組織行為、組織心理學)】",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28163 \"國立政治大學教育學院徵聘專任教師公告 【教育學領域(側重教育管理、人力資源管理、組織行為、組織心理學",
+    "num": "28163"
+  },
+  {
+    "unit": "國立暨南國際大學護理學系",
+    "title": "國立暨南國際大學護理學系徵聘專案教師公告",
+    "location": "南投縣埔里鎮",
+    "postDate": "2025/12/23",
+    "deadline": "2026/01/02",
+    "linkText": "國立暨南國際大學護理學系徵聘專案教師公告",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28161 \"國立暨南國際大學護理學系徵聘專案教師公告\"",
+    "num": "28161"
+  },
+  {
+    "unit": "文藻外語大學應用華語文系",
+    "title": "應用華語文系兼任講師級以上2名",
+    "location": "高雄市三民區",
+    "postDate": "2025/12/23",
+    "deadline": "2026/01/07",
+    "linkText": "應用華語文系兼任講師級以上2名",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28164 \"應用華語文系兼任講師級以上2名\"",
+    "num": "28164"
+  },
+  {
+    "unit": "國立臺北大學資訊工程學系",
+    "title": "國立臺北大學資訊工程學系誠徵專兼任教師公告",
+    "location": "新北市三峽區",
+    "postDate": "2025/12/23",
+    "deadline": "2026/01/14",
+    "linkText": "國立臺北大學資訊工程學系誠徵專兼任教師公告",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28166 \"國立臺北大學資訊工程學系誠徵專兼任教師公告\"",
+    "num": "28166"
+  },
+  {
+    "unit": "國立聯合大學材料科學工程學系",
+    "title": "國立聯合大學材料科學工程學系誠徵專任助理教授(含)以上一名",
+    "location": "苗栗縣苗栗市",
+    "postDate": "2025/12/23",
+    "deadline": "2026/03/04",
+    "linkText": "國立聯合大學材料科學工程學系誠徵專任助理教授(含)以上一名",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28165 \"國立聯合大學材料科學工程學系誠徵專任助理教授(含",
+    "num": "28165"
+  },
+  {
+    "unit": "國立臺灣藝術大學人事室",
+    "title": "國立臺灣藝術大學設計學院多媒體動畫藝術學系徵聘專業技術人員1名",
+    "location": "新北市板橋區",
+    "postDate": "2025/12/23",
+    "deadline": "2026/01/21",
+    "linkText": "國立臺灣藝術大學設計學院多媒體動畫藝術學系徵聘專業技術人員1名",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28160 \"國立臺灣藝術大學設計學院多媒體動畫藝術學系徵聘專業技術人員1名\"",
+    "num": "28160"
   }
 ]
