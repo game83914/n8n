@@ -1,15 +1,5 @@
 [
   {
-    "unit": "中原大學人事室",
-    "title": "中原大學化學系徵聘專任助理教授(含)以上1名",
-    "location": "桃園市中壢區",
-    "postDate": "2025/12/18",
-    "deadline": "2026/03/16",
-    "linkText": "中原大學化學系徵聘專任助理教授(含)以上1名",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28117 \"中原大學化學系徵聘專任助理教授(含",
-    "num": "28117"
-  },
-  {
     "unit": "國立陽明交通大學衛生福利研究所",
     "title": "國立陽明交通大學衛生福利研究所誠徵專任教師",
     "location": "臺北市北投區",
@@ -38,16 +28,6 @@
     "linkText": "國立彰化師範大學電機系徵聘專案(任)教師公告",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28127 \"國立彰化師範大學電機系徵聘專案(任",
     "num": "28127"
-  },
-  {
-    "unit": "國立屏東大學人事室",
-    "title": "國立屏東大學特殊教育學系徵聘專任教師公告(1141218)",
-    "location": "屏東縣屏東市",
-    "postDate": "2025/12/18",
-    "deadline": "2026/03/06",
-    "linkText": "國立屏東大學特殊教育學系徵聘專任教師公告(1141218)",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28121 \"國立屏東大學特殊教育學系徵聘專任教師公告(1141218",
-    "num": "28121"
   },
   {
     "unit": "國立政治大學教育學院",
@@ -160,16 +140,6 @@
     "num": "28122"
   },
   {
-    "unit": "中國醫藥大學通識教育中心",
-    "title": "中國醫藥大學通識教育中心誠徵英文專任(專案)教師1名",
-    "location": "臺中市北屯區",
-    "postDate": "2025/12/18",
-    "deadline": "2026/02/11",
-    "linkText": "中國醫藥大學通識教育中心誠徵英文專任(專案)教師1名",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28123 \"中國醫藥大學通識教育中心誠徵英文專任(專案",
-    "num": "28123"
-  },
-  {
     "unit": "國立中山大學國立中山大學海洋科學系.",
     "title": "國立中山大學海洋科學系誠徵助理教授(含)以上一名",
     "location": "高雄市鼓山區",
@@ -280,26 +250,6 @@
     "num": "28156"
   },
   {
-    "unit": "中國醫藥大學醫務管理學系",
-    "title": "中國醫藥大學醫務管理學系徵求專任教師一名",
-    "location": "臺中市北屯區",
-    "postDate": "2025/12/18",
-    "deadline": "2026/03/31",
-    "linkText": "中國醫藥大學醫務管理學系徵求專任教師一名",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28125 \"中國醫藥大學醫務管理學系徵求專任教師一名\"",
-    "num": "28125"
-  },
-  {
-    "unit": "國立臺南大學應用數學系",
-    "title": "國立臺南大學應用數學系新聘教師甄選簡章(延長公告)",
-    "location": "臺南市中西區",
-    "postDate": "2025/12/18",
-    "deadline": "2026/01/10",
-    "linkText": "國立臺南大學應用數學系新聘教師甄選簡章(延長公告)",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28137 \"國立臺南大學應用數學系新聘教師甄選簡章(延長公告",
-    "num": "28137"
-  },
-  {
     "unit": "國立臺灣科技大學營建工程系",
     "title": "115學年度國立臺灣科技大學營建工程系徵聘專任教師",
     "location": "臺北市大安區",
@@ -400,16 +350,6 @@
     "num": "28160"
   },
   {
-    "unit": "國立聯合大學化學工程學系",
-    "title": "國立聯合大學化學工程學系誠徵專任助理教授以上教師 1名",
-    "location": "苗栗縣苗栗市",
-    "postDate": "2025/12/17",
-    "deadline": "2026/03/04",
-    "linkText": "國立聯合大學化學工程學系誠徵專任助理教授以上教師 1名",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28111 \"國立聯合大學化學工程學系誠徵專任助理教授以上教師 1名\"",
-    "num": "28111"
-  },
-  {
     "unit": "國立雲林科技大學人事室",
     "title": "國立雲林科技⼤學資訊工程系編制內專任師資徵聘公告",
     "location": "雲林縣斗六市",
@@ -448,6 +388,66 @@
     "linkText": "國立臺南藝術大學聲響科技研究所徵聘兼任教師公告(技術類別)",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28134 \"國立臺南藝術大學聲響科技研究所徵聘兼任教師公告(技術類別",
     "num": "28134"
+  },
+  {
+    "unit": "中原大學人事室",
+    "title": "中原大學化學系徵聘專任助理教授(含)以上1名",
+    "location": "桃園市中壢區",
+    "postDate": "2025/12/18",
+    "deadline": "2026/03/16",
+    "linkText": "中原大學化學系徵聘專任助理教授(含)以上1名",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28117 \"中原大學化學系徵聘專任助理教授(含",
+    "num": "28117"
+  },
+  {
+    "unit": "國立屏東大學人事室",
+    "title": "國立屏東大學特殊教育學系徵聘專任教師公告(1141218)",
+    "location": "屏東縣屏東市",
+    "postDate": "2025/12/18",
+    "deadline": "2026/03/06",
+    "linkText": "國立屏東大學特殊教育學系徵聘專任教師公告(1141218)",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28121 \"國立屏東大學特殊教育學系徵聘專任教師公告(1141218",
+    "num": "28121"
+  },
+  {
+    "unit": "中國醫藥大學通識教育中心",
+    "title": "中國醫藥大學通識教育中心誠徵英文專任(專案)教師1名",
+    "location": "臺中市北屯區",
+    "postDate": "2025/12/18",
+    "deadline": "2026/02/11",
+    "linkText": "中國醫藥大學通識教育中心誠徵英文專任(專案)教師1名",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28123 \"中國醫藥大學通識教育中心誠徵英文專任(專案",
+    "num": "28123"
+  },
+  {
+    "unit": "中國醫藥大學醫務管理學系",
+    "title": "中國醫藥大學醫務管理學系徵求專任教師一名",
+    "location": "臺中市北屯區",
+    "postDate": "2025/12/18",
+    "deadline": "2026/03/31",
+    "linkText": "中國醫藥大學醫務管理學系徵求專任教師一名",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28125 \"中國醫藥大學醫務管理學系徵求專任教師一名\"",
+    "num": "28125"
+  },
+  {
+    "unit": "國立臺南大學應用數學系",
+    "title": "國立臺南大學應用數學系新聘教師甄選簡章(延長公告)",
+    "location": "臺南市中西區",
+    "postDate": "2025/12/18",
+    "deadline": "2026/01/10",
+    "linkText": "國立臺南大學應用數學系新聘教師甄選簡章(延長公告)",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28137 \"國立臺南大學應用數學系新聘教師甄選簡章(延長公告",
+    "num": "28137"
+  },
+  {
+    "unit": "國立聯合大學化學工程學系",
+    "title": "國立聯合大學化學工程學系誠徵專任助理教授以上教師 1名",
+    "location": "苗栗縣苗栗市",
+    "postDate": "2025/12/17",
+    "deadline": "2026/03/04",
+    "linkText": "國立聯合大學化學工程學系誠徵專任助理教授以上教師 1名",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28111 \"國立聯合大學化學工程學系誠徵專任助理教授以上教師 1名\"",
+    "num": "28111"
   },
   {
     "unit": "國立高雄科技大學行銷與流通管理系",
@@ -2508,5 +2508,15 @@
     "linkText": "國立臺灣藝術大學美術學院古蹟藝術修護學系誠徵專任教師1名",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=27835 \"國立臺灣藝術大學美術學院古蹟藝術修護學系誠徵專任教師1名\"",
     "num": "27835"
+  },
+  {
+    "unit": "國立屏東大學人事室",
+    "title": "國立屏東大學國際經營與貿易學系徵聘專任教師公告(1141223)",
+    "location": "屏東縣屏東市",
+    "postDate": "2025/12/23",
+    "deadline": "2026/02/26",
+    "linkText": "國立屏東大學國際經營與貿易學系徵聘專任教師公告(1141223)",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28167 \"國立屏東大學國際經營與貿易學系徵聘專任教師公告(1141223",
+    "num": "28167"
   }
 ]
