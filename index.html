@@ -328,7 +328,11 @@
     }
     .favToggle input{accent-color: var(--accent);}
 
-  </style>
+  
+      .selectWrap{display:flex; flex-direction:column; gap:6px; min-width: 180px;}
+      .selectWrap select{min-height: 160px;}
+      .hint{font-size:12px; color: rgba(255,255,255,.65); line-height:1.2;}
+    </style>
 </head>
 
 <body>
@@ -337,7 +341,7 @@
       <div class="titleRow">
         <div>
           <h1>淑芸催討囉~</h1>
-          <p class="sub">支援搜尋、縣市/截止期限篩選；預設依公告日由新到舊排序。</p>
+          <p class="sub">支援搜尋、縣市（可複選）/截止期限篩選；預設依公告日由新到舊排序。</p>
         </div>
         <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;">
           <div class="pill" id="summaryPill">載入中…</div>
@@ -358,7 +362,10 @@
             <path d="M12 22s8-4.5 8-12a8 8 0 10-16 0c0 7.5 8 12 8 12z" stroke="currentColor" stroke-width="2"/>
             <path d="M12 11a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="2"/>
           </svg>
-          <select id="city"></select>
+          <div class="selectWrap">
+            <select id="city" multiple size="6" aria-label="縣市（可複選）"></select>
+            <div class="hint">縣市可複選（Windows 按住 Ctrl；Mac 按住 ⌘）</div>
+          </div>
         </div>
 
         <div class="control">
@@ -491,6 +498,30 @@
       return fmt(s).replaceAll("台","臺");
     }
 
+    // 臺灣常見縣市排序（由北到南＋東部＋離島）
+    const CITY_ORDER = [
+      "臺北市","新北市","基隆市","桃園市",
+      "新竹市","新竹縣","苗栗縣",
+      "臺中市","彰化縣","南投縣","雲林縣",
+      "嘉義市","嘉義縣","臺南市","高雄市","屏東縣",
+      "宜蘭縣","花蓮縣","臺東縣",
+      "澎湖縣","金門縣","連江縣"
+    ];
+
+    function sortCitiesZhTW(list){
+      return [...list].sort((a,b)=>{
+        const A = normalizeZhTW(a);
+        const B = normalizeZhTW(b);
+        const ia = CITY_ORDER.indexOf(A);
+        const ib = CITY_ORDER.indexOf(B);
+        if(ia !== -1 || ib !== -1){
+          return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+        }
+        return A.localeCompare(B, "zh-Hant");
+      });
+    }
+
+
     function cityFromLocation(location){
       const s = normalizeZhTW(location);
       const cities = [
@@ -539,7 +570,7 @@
     const onlyFavChk = $("#onlyFav");
 
     function initFilters(){
-      const cities = uniq(DATA.map(x => cityFromLocation(x.location)));
+      const cities = sortCitiesZhTW(uniq(DATA.map(x => cityFromLocation(x.location))));
       citySel.innerHTML = `<option value="">全部縣市</option>` +
         cities.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("");
 
@@ -588,12 +619,12 @@
 
     function filterItems(){
       const keyword = fmt(q.value).toLowerCase();
-      const city = fmt(citySel.value);
+      const selectedCities = Array.from(citySel.selectedOptions).map(o => fmt(o.value)).filter(Boolean);
 
       const filtered = DATA.filter(x => {
         const key = jobKey(x);
         if(onlyFav && !FAVORITES.has(key)) return false;
-        if(city && cityFromLocation(x.location) !== city) return false;
+        if(selectedCities.length && !selectedCities.includes(cityFromLocation(x.location))) return false;
         if(!matchDeadlineBucket(x)) return false;
 
         if(!keyword) return true;
