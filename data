@@ -171,16 +171,6 @@
   },
   {
     "unit": "慈濟學校財團法人慈濟大學人力資源處",
-    "title": "慈濟大學 宗教與人文研究所 副教授以上",
-    "location": "花蓮縣花蓮市",
-    "postDate": "2025/12/25",
-    "deadline": "2026/05/31",
-    "linkText": "慈濟大學 宗教與人文研究所 副教授以上",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28183 \"慈濟大學 宗教與人文研究所 副教授以上\"",
-    "num": "28183"
-  },
-  {
-    "unit": "慈濟學校財團法人慈濟大學人力資源處",
     "title": "慈濟大學 醫學檢驗生物技術學系 助理教授以上",
     "location": "花蓮縣花蓮市",
     "postDate": "2025/12/25",
@@ -388,6 +378,16 @@
     "linkText": "靜宜大學教育研究所誠徵專任或專案約聘教師",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28201 \"靜宜大學教育研究所誠徵專任或專案約聘教師\"",
     "num": "28201"
+  },
+  {
+    "unit": "慈濟學校財團法人慈濟大學人力資源處",
+    "title": "慈濟大學 宗教與人文研究所 副教授以上",
+    "location": "花蓮縣花蓮市",
+    "postDate": "2025/12/25",
+    "deadline": "2026/05/31",
+    "linkText": "慈濟大學 宗教與人文研究所 副教授以上",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28183 \"慈濟大學 宗教與人文研究所 副教授以上\"",
+    "num": "28183"
   },
   {
     "unit": "國立臺灣藝術大學人事室",
@@ -2818,5 +2818,15 @@
     "linkText": "國立臺灣藝術大學美術學院古蹟藝術修護學系誠徵專任教師1名",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=27835 \"國立臺灣藝術大學美術學院古蹟藝術修護學系誠徵專任教師1名\"",
     "num": "27835"
+  },
+  {
+    "unit": "國立高雄大學資訊工程學系",
+    "title": "國立高雄大學資訊工程學系誠徵專任助理教授以上1名(延長公告)",
+    "location": "高雄市楠梓區",
+    "postDate": "2025/12/27",
+    "deadline": "2026/01/09",
+    "linkText": "國立高雄大學資訊工程學系誠徵專任助理教授以上1名(延長公告)",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28192 \"國立高雄大學資訊工程學系誠徵專任助理教授以上1名(延長公告",
+    "num": "28192"
   }
 ]
