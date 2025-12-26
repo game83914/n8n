@@ -10,26 +10,6 @@
     "num": "28149"
   },
   {
-    "unit": "致理科技大學人事室",
-    "title": "致理科技大學徵求114學年度第2學期師資公告(商務智慧與創新研究所)",
-    "location": "新北市板橋區",
-    "postDate": "2025/12/22",
-    "deadline": "2026/01/29",
-    "linkText": "致理科技大學徵求114學年度第2學期師資公告(商務智慧與創新研究所)",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28150 \"致理科技大學徵求114學年度第2學期師資公告(商務智慧與創新研究所",
-    "num": "28150"
-  },
-  {
-    "unit": "元智大學Department of Electrical Engineering Program A",
-    "title": "Yuan Ze University Department of Electrical Engineering Program A",
-    "location": "桃園市中壢區",
-    "postDate": "2025/12/22",
-    "deadline": "2026/01/30",
-    "linkText": "Yuan Ze University Department of Electrical Engineering Program A",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28151 \"Yuan Ze University Department of Electrical Engineering Program A\"",
-    "num": "28151"
-  },
-  {
     "unit": "元智大學人事室",
     "title": "元智大學電機工程學系甲組115學年度第1學系誠徵專任師資2名",
     "location": "桃園市中壢區",
@@ -38,26 +18,6 @@
     "linkText": "元智大學電機工程學系甲組115學年度第1學系誠徵專任師資2名",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28152 \"元智大學電機工程學系甲組115學年度第1學系誠徵專任師資2名\"",
     "num": "28152"
-  },
-  {
-    "unit": "台南應用科技大學人事室",
-    "title": "台南應用科技大學美術系誠徵編制內專任或編制外專案助理教授以上師資",
-    "location": "臺南市永康區",
-    "postDate": "2025/12/22",
-    "deadline": "2025/12/31",
-    "linkText": "台南應用科技大學美術系誠徵編制內專任或編制外專案助理教授以上師資",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28155 \"台南應用科技大學美術系誠徵編制內專任或編制外專案助理教授以上師資\"",
-    "num": "28155"
-  },
-  {
-    "unit": "國立臺東大學競技與運動科學學系",
-    "title": "國立臺東大學競技與運動科學學系徵聘助理教授以上專任教師徵才第1次延長收件公告，收件至115年4月30日。",
-    "location": "臺東縣臺東市",
-    "postDate": "2025/12/22",
-    "deadline": "2026/04/30",
-    "linkText": "國立臺東大學競技與運動科學學系徵聘助理教授以上專任教師徵才第1次延長收件公告，收件至115年4月30日。",
-    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28156 \"國立臺東大學競技與運動科學學系徵聘助理教授以上專任教師徵才第1次延長收件公告，收件至115年4月30日。\"",
-    "num": "28156"
   },
   {
     "unit": "國立臺灣科技大學營建工程系",
@@ -398,6 +358,46 @@
     "linkText": "國立宜蘭大學外國語文學系徵聘「教學型專任(案)外籍教師」公告",
     "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28194 \"國立宜蘭大學外國語文學系徵聘「教學型專任(案",
     "num": "28194"
+  },
+  {
+    "unit": "致理科技大學人事室",
+    "title": "致理科技大學徵求114學年度第2學期師資公告(商務智慧與創新研究所)",
+    "location": "新北市板橋區",
+    "postDate": "2025/12/22",
+    "deadline": "2026/01/29",
+    "linkText": "致理科技大學徵求114學年度第2學期師資公告(商務智慧與創新研究所)",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28150 \"致理科技大學徵求114學年度第2學期師資公告(商務智慧與創新研究所",
+    "num": "28150"
+  },
+  {
+    "unit": "元智大學Department of Electrical Engineering Program A",
+    "title": "Yuan Ze University Department of Electrical Engineering Program A",
+    "location": "桃園市中壢區",
+    "postDate": "2025/12/22",
+    "deadline": "2026/01/30",
+    "linkText": "Yuan Ze University Department of Electrical Engineering Program A",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28151 \"Yuan Ze University Department of Electrical Engineering Program A\"",
+    "num": "28151"
+  },
+  {
+    "unit": "台南應用科技大學人事室",
+    "title": "台南應用科技大學美術系誠徵編制內專任或編制外專案助理教授以上師資",
+    "location": "臺南市永康區",
+    "postDate": "2025/12/22",
+    "deadline": "2025/12/31",
+    "linkText": "台南應用科技大學美術系誠徵編制內專任或編制外專案助理教授以上師資",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28155 \"台南應用科技大學美術系誠徵編制內專任或編制外專案助理教授以上師資\"",
+    "num": "28155"
+  },
+  {
+    "unit": "國立臺東大學競技與運動科學學系",
+    "title": "國立臺東大學競技與運動科學學系徵聘助理教授以上專任教師徵才第1次延長收件公告，收件至115年4月30日。",
+    "location": "臺東縣臺東市",
+    "postDate": "2025/12/22",
+    "deadline": "2026/04/30",
+    "linkText": "國立臺東大學競技與運動科學學系徵聘助理教授以上專任教師徵才第1次延長收件公告，收件至115年4月30日。",
+    "linkUrl": "https://tjn.moe.edu.tw/EduJin/Opening/Detail?num=28156 \"國立臺東大學競技與運動科學學系徵聘助理教授以上專任教師徵才第1次延長收件公告，收件至115年4月30日。\"",
+    "num": "28156"
   },
   {
     "unit": "台南應用科技大學人事室",
